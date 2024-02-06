@@ -1,0 +1,18 @@
+<div class="flex-column justify-content-center align-items-center d-flex container border rounded mt-5" style="height: 75vh;" >
+    <h1 class="text-center text-dark">LOGIN</h1>
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <input class="form-control mt-2" type="text" placeholder="email" formControlName="email" name="uemail" >
+            <span class="text-danger" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched ">Invalid email!</span>
+            <input class="form-control mt-2" type="text" placeholder="password" formControlName="password" name="upasssword" >
+            <span class="text-danger" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched ">Invalid Password!</span>
+        <div class="flex-column justify-content-center align-items-center d-flex mt-2" >
+            
+            <button class="btn btn-success mt-2" type="submit"> Login</button>
+
+            <a routerLink="/user/register">new user?Join here</a>
+        </div>
+    </form>
+
+
+</div>
+

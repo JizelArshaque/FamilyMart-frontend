@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="d-flex flex-column justify-content-center align-items-center" *ngIf="(products.length == 0)" >
+    <img src="./assets/images/wlist.png" alt="no img"><br>
+    <a routerLink="" class="text-danger" style="text-decoration: none;"> Add to your list</a>
+
+</div>
+
+<div *ngIf="!(products.length == 0)" >
+    <h1 class="text-danger text-center mt-3">Your Wishlist</h1>
+    
+    
+    <section class="py-5" >
+        <div class="container px-4 px-lg-5 mt-3">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5" *ngFor="let p of products">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top p-2" routerLink="/view-product/{{p.id}}" [src]="p.image" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{p.title.slice(0,20)}}</h5>
+                                <!-- Product price-->
+                                {{p.price}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent ">
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-outline-danger mt-auto" (click)="remove(p._id)" ><i class="fa-solid fa-trash"></i></a>
+                                <a class="btn btn-outline-success mt-auto" (click)="addtocart(p)"><i class="fa-solid fa-cart-shopping"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+</div>
+<h1></h1>

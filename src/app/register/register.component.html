@@ -1,0 +1,20 @@
+<div class="flex-column justify-content-center align-items-center d-flex container border rounded mt-5" style="height: 75vh;" >
+    <h1 class="text-center text-dark">Register</h1>
+    <form (ngSubmit)="register()" class="p-3 shadow rounded"  [formGroup]="registerForm">
+        <div class="flex-column   d-flex mt-2">
+            
+            <input class="mt-2" type="text" placeholder="username" formControlName="username" name="uname">
+            <span class="text-danger" *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched">Invalid Username</span>
+            
+            <input class="mt-2" type="text" placeholder="email" formControlName="email" name="uemail">
+            <span class="text-danger" *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">Invalid Email</span>
+            
+            <input class="mt-2" type="text" placeholder="password"  formControlName="password" name="upassword">
+            <span class="text-danger" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">Invalid Password</span>
+
+            <button type="submit" class="btn btn-success mt-2"> register</button>
+
+            <a routerLink="/user/login">already a user?Login</a>
+        </div>
+    </form>
+</div>
