@@ -20,8 +20,10 @@ export class GetservicesService {
 
   cartCount = new BehaviorSubject(0)
 
+ 
+  server_url = 'https://fmserver-7liu.onrender.com'
 
-  server_url = 'http://localhost:8008'
+  // server_url = 'http://localhost:8008'
 
   getAllProductApi(){
     return this.http.get(`${this.server_url}/all-products`)
